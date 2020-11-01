@@ -17,6 +17,7 @@ namespace MyFootballProject.models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Customer()
         {
+            this.Customer_To_Rooms = new HashSet<Customer_To_Rooms>();
             this.Rezervs = new HashSet<Rezerv>();
         }
     
@@ -25,6 +26,8 @@ namespace MyFootballProject.models
         public int Phone { get; set; }
         public string Address { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Customer_To_Rooms> Customer_To_Rooms { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rezerv> Rezervs { get; set; }
     }

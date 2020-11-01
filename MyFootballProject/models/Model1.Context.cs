@@ -34,6 +34,8 @@ namespace MyFootballProject.models
         public virtual DbSet<Stadion> Stadions { get; set; }
         public virtual DbSet<AllWorker> AllWorkers { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<Customer_To_Rooms> Customer_To_Rooms { get; set; }
+        public virtual DbSet<Reservation_To_Rooms> Reservation_To_Rooms { get; set; }
         public virtual DbSet<Rezerv> Rezervs { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)

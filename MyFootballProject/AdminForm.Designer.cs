@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.btnRezervations = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.btnWorker = new System.Windows.Forms.Button();
@@ -50,16 +53,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.roomControl11 = new MyFootballProject.RoomControl1();
+            this.stadiumControl11 = new MyFootballProject.StadiumControl1();
+            this.userCustomerControl11 = new MyFootballProject.UserCustomerControl1();
+            this.homeControl11 = new MyFootballProject.HomeControl1();
             this.workerControl11 = new MyFootballProject.WorkerControl1();
             this.roomControl12 = new MyFootballProject.RoomControl1();
             this.stadiumControl12 = new MyFootballProject.StadiumControl1();
             this.userCustomerControl12 = new MyFootballProject.UserCustomerControl1();
             this.homeControl12 = new MyFootballProject.HomeControl1();
-            this.roomControl11 = new MyFootballProject.RoomControl1();
-            this.stadiumControl11 = new MyFootballProject.StadiumControl1();
-            this.userCustomerControl11 = new MyFootballProject.UserCustomerControl1();
-            this.homeControl11 = new MyFootballProject.HomeControl1();
+            this.reservationsControl11 = new MyFootballProject.ReservationsControl1();
             this.panelMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -74,6 +79,9 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
+            this.panelMenu.Controls.Add(this.panel2);
+            this.panelMenu.Controls.Add(this.pictureBox7);
+            this.panelMenu.Controls.Add(this.btnRezervations);
             this.panelMenu.Controls.Add(this.panel1);
             this.panelMenu.Controls.Add(this.pictureBox6);
             this.panelMenu.Controls.Add(this.btnWorker);
@@ -95,6 +103,44 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(191, 589);
             this.panelMenu.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(137)))), ((int)(((byte)(115)))));
+            this.panel2.Location = new System.Drawing.Point(19, 441);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(150, 3);
+            this.panel2.TabIndex = 19;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(9, 457);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(51, 43);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox7.TabIndex = 18;
+            this.pictureBox7.TabStop = false;
+            // 
+            // btnRezervations
+            // 
+            this.btnRezervations.BackColor = System.Drawing.Color.Transparent;
+            this.btnRezervations.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRezervations.FlatAppearance.BorderSize = 0;
+            this.btnRezervations.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(35)))), ((int)(((byte)(25)))));
+            this.btnRezervations.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(35)))), ((int)(((byte)(25)))));
+            this.btnRezervations.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRezervations.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRezervations.ForeColor = System.Drawing.Color.White;
+            this.btnRezervations.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRezervations.Location = new System.Drawing.Point(9, 457);
+            this.btnRezervations.Name = "btnRezervations";
+            this.btnRezervations.Size = new System.Drawing.Size(179, 53);
+            this.btnRezervations.TabIndex = 17;
+            this.btnRezervations.Text = "                 Reservations";
+            this.btnRezervations.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRezervations.UseVisualStyleBackColor = false;
+            this.btnRezervations.Click += new System.EventHandler(this.btnRezervations_Click);
             // 
             // panel1
             // 
@@ -342,6 +388,39 @@
             this.panel4.Size = new System.Drawing.Size(741, 487);
             this.panel4.TabIndex = 3;
             // 
+            // roomControl11
+            // 
+            this.roomControl11.BackColor = System.Drawing.Color.White;
+            this.roomControl11.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.roomControl11.Location = new System.Drawing.Point(0, 0);
+            this.roomControl11.Name = "roomControl11";
+            this.roomControl11.Size = new System.Drawing.Size(741, 487);
+            this.roomControl11.TabIndex = 3;
+            // 
+            // stadiumControl11
+            // 
+            this.stadiumControl11.BackColor = System.Drawing.Color.White;
+            this.stadiumControl11.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.stadiumControl11.Location = new System.Drawing.Point(0, 0);
+            this.stadiumControl11.Name = "stadiumControl11";
+            this.stadiumControl11.Size = new System.Drawing.Size(741, 487);
+            this.stadiumControl11.TabIndex = 2;
+            // 
+            // userCustomerControl11
+            // 
+            this.userCustomerControl11.BackColor = System.Drawing.Color.White;
+            this.userCustomerControl11.Location = new System.Drawing.Point(0, 0);
+            this.userCustomerControl11.Name = "userCustomerControl11";
+            this.userCustomerControl11.Size = new System.Drawing.Size(741, 487);
+            this.userCustomerControl11.TabIndex = 1;
+            // 
+            // homeControl11
+            // 
+            this.homeControl11.Location = new System.Drawing.Point(0, 0);
+            this.homeControl11.Name = "homeControl11";
+            this.homeControl11.Size = new System.Drawing.Size(741, 487);
+            this.homeControl11.TabIndex = 0;
+            // 
             // workerControl11
             // 
             this.workerControl11.BackColor = System.Drawing.Color.White;
@@ -383,38 +462,13 @@
             this.homeControl12.Size = new System.Drawing.Size(741, 487);
             this.homeControl12.TabIndex = 3;
             // 
-            // roomControl11
+            // reservationsControl11
             // 
-            this.roomControl11.BackColor = System.Drawing.Color.White;
-            this.roomControl11.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.roomControl11.Location = new System.Drawing.Point(0, 0);
-            this.roomControl11.Name = "roomControl11";
-            this.roomControl11.Size = new System.Drawing.Size(741, 487);
-            this.roomControl11.TabIndex = 3;
-            // 
-            // stadiumControl11
-            // 
-            this.stadiumControl11.BackColor = System.Drawing.Color.White;
-            this.stadiumControl11.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.stadiumControl11.Location = new System.Drawing.Point(0, 0);
-            this.stadiumControl11.Name = "stadiumControl11";
-            this.stadiumControl11.Size = new System.Drawing.Size(741, 487);
-            this.stadiumControl11.TabIndex = 2;
-            // 
-            // userCustomerControl11
-            // 
-            this.userCustomerControl11.BackColor = System.Drawing.Color.White;
-            this.userCustomerControl11.Location = new System.Drawing.Point(0, 0);
-            this.userCustomerControl11.Name = "userCustomerControl11";
-            this.userCustomerControl11.Size = new System.Drawing.Size(741, 487);
-            this.userCustomerControl11.TabIndex = 1;
-            // 
-            // homeControl11
-            // 
-            this.homeControl11.Location = new System.Drawing.Point(0, 0);
-            this.homeControl11.Name = "homeControl11";
-            this.homeControl11.Size = new System.Drawing.Size(741, 487);
-            this.homeControl11.TabIndex = 0;
+            this.reservationsControl11.BackColor = System.Drawing.Color.White;
+            this.reservationsControl11.Location = new System.Drawing.Point(191, 0);
+            this.reservationsControl11.Name = "reservationsControl11";
+            this.reservationsControl11.Size = new System.Drawing.Size(741, 487);
+            this.reservationsControl11.TabIndex = 8;
             // 
             // AdminForm
             // 
@@ -422,6 +476,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(932, 589);
+            this.Controls.Add(this.reservationsControl11);
             this.Controls.Add(this.workerControl11);
             this.Controls.Add(this.roomControl12);
             this.Controls.Add(this.stadiumControl12);
@@ -434,6 +489,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.panelMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -480,6 +536,10 @@
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Panel panel1;
         private WorkerControl1 workerControl11;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Button btnRezervations;
+        private ReservationsControl1 reservationsControl11;
     }
 }
 

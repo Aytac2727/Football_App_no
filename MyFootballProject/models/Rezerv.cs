@@ -14,8 +14,13 @@ namespace MyFootballProject.models
     
     public partial class Rezerv
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Rezerv()
+        {
+            this.Reservation_To_Rooms = new HashSet<Reservation_To_Rooms>();
+        }
+    
         public int Id { get; set; }
-        public System.DateTime Date { get; set; }
         public decimal Price { get; set; }
         public System.DateTime DateFrom { get; set; }
         public System.DateTime DateTo { get; set; }
@@ -24,6 +29,8 @@ namespace MyFootballProject.models
         public int RoomId { get; set; }
     
         public virtual Customer Customer { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Reservation_To_Rooms> Reservation_To_Rooms { get; set; }
         public virtual Room Room { get; set; }
         public virtual Stadion Stadion { get; set; }
     }

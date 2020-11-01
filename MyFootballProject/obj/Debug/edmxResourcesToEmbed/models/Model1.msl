@@ -90,6 +90,24 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Customer_To_Rooms">
+      <EntityTypeMapping TypeName="FootballProjectModel.Customer_To_Rooms">
+        <MappingFragment StoreEntitySet="Customer_To_Rooms">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reservation_To_Rooms">
+      <EntityTypeMapping TypeName="FootballProjectModel.Reservation_To_Rooms">
+        <MappingFragment StoreEntitySet="Reservation_To_Rooms">
+          <ScalarProperty Name="RezervId" ColumnName="RezervId" />
+          <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Rezervs">
       <EntityTypeMapping TypeName="FootballProjectModel.Rezerv">
         <MappingFragment StoreEntitySet="Rezervs">
@@ -99,7 +117,6 @@
           <ScalarProperty Name="DateTo" ColumnName="DateTo" />
           <ScalarProperty Name="DateFrom" ColumnName="DateFrom" />
           <ScalarProperty Name="Price" ColumnName="Price" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

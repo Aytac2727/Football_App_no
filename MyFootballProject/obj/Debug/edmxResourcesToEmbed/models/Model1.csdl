@@ -52,10 +52,28 @@
     <EntitySet Name="Stadions" EntityType="FootballProjectModel.Stadion" />
     <EntitySet Name="AllWorkers" EntityType="FootballProjectModel.AllWorker" />
     <EntitySet Name="Customers" EntityType="FootballProjectModel.Customer" />
+    <EntitySet Name="Customer_To_Rooms" EntityType="FootballProjectModel.Customer_To_Rooms" />
+    <EntitySet Name="Reservation_To_Rooms" EntityType="FootballProjectModel.Reservation_To_Rooms" />
+    <AssociationSet Name="FK_Customer_To_Rooms_Customers" Association="FootballProjectModel.FK_Customer_To_Rooms_Customers">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Customer_To_Rooms" EntitySet="Customer_To_Rooms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customer_To_Rooms_Rooms" Association="FootballProjectModel.FK_Customer_To_Rooms_Rooms">
+      <End Role="Room" EntitySet="Rooms" />
+      <End Role="Customer_To_Rooms" EntitySet="Customer_To_Rooms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reservation_To_Rooms_Rooms" Association="FootballProjectModel.FK_Reservation_To_Rooms_Rooms">
+      <End Role="Room" EntitySet="Rooms" />
+      <End Role="Reservation_To_Rooms" EntitySet="Reservation_To_Rooms" />
+    </AssociationSet>
     <EntitySet Name="Rezervs" EntityType="FootballProjectModel.Rezerv" />
     <AssociationSet Name="FK_Rezervs_Customers" Association="FootballProjectModel.FK_Rezervs_Customers">
       <End Role="Customer" EntitySet="Customers" />
       <End Role="Rezerv" EntitySet="Rezervs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reservation_To_Rooms_Rezervs" Association="FootballProjectModel.FK_Reservation_To_Rooms_Rezervs">
+      <End Role="Rezerv" EntitySet="Rezervs" />
+      <End Role="Reservation_To_Rooms" EntitySet="Reservation_To_Rooms" />
     </AssociationSet>
     <AssociationSet Name="FK_Rezervs_Rooms" Association="FootballProjectModel.FK_Rezervs_Rooms">
       <End Role="Room" EntitySet="Rooms" />
@@ -84,6 +102,8 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Count" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Customer_To_Rooms" Relationship="FootballProjectModel.FK_Customer_To_Rooms_Rooms" FromRole="Room" ToRole="Customer_To_Rooms" />
+    <NavigationProperty Name="Reservation_To_Rooms" Relationship="FootballProjectModel.FK_Reservation_To_Rooms_Rooms" FromRole="Room" ToRole="Reservation_To_Rooms" />
     <NavigationProperty Name="Rezervs" Relationship="FootballProjectModel.FK_Rezervs_Rooms" FromRole="Room" ToRole="Rezerv" />
   </EntityType>
   <EntityType Name="sysdiagram">
@@ -122,14 +142,70 @@
     <Property Name="Fullname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Phone" Type="Int32" Nullable="false" />
     <Property Name="Address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Customer_To_Rooms" Relationship="FootballProjectModel.FK_Customer_To_Rooms_Customers" FromRole="Customer" ToRole="Customer_To_Rooms" />
     <NavigationProperty Name="Rezervs" Relationship="FootballProjectModel.FK_Rezervs_Customers" FromRole="Customer" ToRole="Rezerv" />
   </EntityType>
+  <EntityType Name="Customer_To_Rooms">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoomId" Type="Int32" Nullable="false" />
+    <Property Name="CustomerId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Customer" Relationship="FootballProjectModel.FK_Customer_To_Rooms_Customers" FromRole="Customer_To_Rooms" ToRole="Customer" />
+    <NavigationProperty Name="Room" Relationship="FootballProjectModel.FK_Customer_To_Rooms_Rooms" FromRole="Customer_To_Rooms" ToRole="Room" />
+  </EntityType>
+  <EntityType Name="Reservation_To_Rooms">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoomId" Type="Int32" Nullable="false" />
+    <Property Name="RezervId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Room" Relationship="FootballProjectModel.FK_Reservation_To_Rooms_Rooms" FromRole="Reservation_To_Rooms" ToRole="Room" />
+    <NavigationProperty Name="Rezerv" Relationship="FootballProjectModel.FK_Reservation_To_Rooms_Rezervs" FromRole="Reservation_To_Rooms" ToRole="Rezerv" />
+  </EntityType>
+  <Association Name="FK_Customer_To_Rooms_Customers">
+    <End Type="FootballProjectModel.Customer" Role="Customer" Multiplicity="1" />
+    <End Type="FootballProjectModel.Customer_To_Rooms" Role="Customer_To_Rooms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Customer_To_Rooms">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customer_To_Rooms_Rooms">
+    <End Type="FootballProjectModel.Room" Role="Room" Multiplicity="1" />
+    <End Type="FootballProjectModel.Customer_To_Rooms" Role="Customer_To_Rooms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Room">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Customer_To_Rooms">
+        <PropertyRef Name="RoomId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reservation_To_Rooms_Rooms">
+    <End Type="FootballProjectModel.Room" Role="Room" Multiplicity="1" />
+    <End Type="FootballProjectModel.Reservation_To_Rooms" Role="Reservation_To_Rooms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Room">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reservation_To_Rooms">
+        <PropertyRef Name="RoomId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityType Name="Rezerv">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
     <Property Name="DateFrom" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="DateTo" Type="DateTime" Nullable="false" Precision="3" />
@@ -137,6 +213,7 @@
     <Property Name="StadiumId" Type="Int32" Nullable="false" />
     <Property Name="RoomId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Customer" Relationship="FootballProjectModel.FK_Rezervs_Customers" FromRole="Rezerv" ToRole="Customer" />
+    <NavigationProperty Name="Reservation_To_Rooms" Relationship="FootballProjectModel.FK_Reservation_To_Rooms_Rezervs" FromRole="Rezerv" ToRole="Reservation_To_Rooms" />
     <NavigationProperty Name="Room" Relationship="FootballProjectModel.FK_Rezervs_Rooms" FromRole="Rezerv" ToRole="Room" />
     <NavigationProperty Name="Stadion" Relationship="FootballProjectModel.FK_Rezervs_Stadions" FromRole="Rezerv" ToRole="Stadion" />
   </EntityType>
@@ -149,6 +226,18 @@
       </Principal>
       <Dependent Role="Rezerv">
         <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reservation_To_Rooms_Rezervs">
+    <End Type="FootballProjectModel.Rezerv" Role="Rezerv" Multiplicity="1" />
+    <End Type="FootballProjectModel.Reservation_To_Rooms" Role="Reservation_To_Rooms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rezerv">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reservation_To_Rooms">
+        <PropertyRef Name="RezervId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

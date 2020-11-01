@@ -67,6 +67,13 @@ namespace MyFootballProject
             SlidePanel.Top = btnWorker.Top;
             workerControl11.BringToFront();
         }
+
+        private void btnRezervations_Click(object sender, EventArgs e)
+        {
+            SlidePanel.Height = btnRezervations.Height;
+            SlidePanel.Top = btnRezervations.Top;
+            reservationsControl11.BringToFront();
+        }
     }
     }
 

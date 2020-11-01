@@ -11,7 +11,12 @@
         <EntityTypeShape EntityType="FootballProjectModel.sysdiagram" Width="1.5" PointX="8.375" PointY="0.75" />
         <EntityTypeShape EntityType="FootballProjectModel.Stadion" Width="1.5" PointX="3.375" PointY="8.875" />
         <EntityTypeShape EntityType="FootballProjectModel.AllWorker" Width="1.5" PointX="5.375" PointY="8.875" />
+        <EntityTypeShape EntityType="FootballProjectModel.Customer_To_Rooms" Width="1.5" PointX="7.5" PointY="12.375" />
+        <EntityTypeShape EntityType="FootballProjectModel.Reservation_To_Rooms" Width="1.5" PointX="10.75" PointY="7.125" />
+        <AssociationConnector Association="FootballProjectModel.FK_Customer_To_Rooms_Rooms" />
+        <AssociationConnector Association="FootballProjectModel.FK_Reservation_To_Rooms_Rooms" />
         <EntityTypeShape EntityType="FootballProjectModel.Rezerv" Width="1.5" PointX="8.5" PointY="6.75" />
+        <AssociationConnector Association="FootballProjectModel.FK_Reservation_To_Rooms_Rezervs" />
         <AssociationConnector Association="FootballProjectModel.FK_Rezervs_Rooms" />
         <AssociationConnector Association="FootballProjectModel.FK_Rezervs_Stadions" />
       </Diagram>
